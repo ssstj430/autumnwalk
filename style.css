@@ -85,12 +85,12 @@ canvas { background-color: transparent; }
   line-height: 66px;
 }
 
-@media (pointer: coarse) and (orientation: portrait) {
+@media (orientation: portrait) {
   #rotate-device { display: flex; }
   #GameDiv { visibility: hidden; }
 }
 
-@media (pointer: coarse) and (orientation: landscape) and (max-height: 430px) {
+@media (orientation: landscape) and (max-height: 430px) {
   #GameDiv {
     padding-top: max(env(safe-area-inset-top), 2px);
     padding-right: max(env(safe-area-inset-right), 4px);

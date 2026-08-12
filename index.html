@@ -36,12 +36,26 @@
   <script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"></script>
   <script>
     System.import('./index.js').catch(function (err) { console.error(err); });
+    function updateOrientationGate() {
+      var portrait = window.innerHeight > window.innerWidth;
+      var gate = document.getElementById('rotate-device');
+      var game = document.getElementById('GameDiv');
+      if (gate) gate.style.display = portrait ? 'flex' : 'none';
+      if (game) game.style.visibility = portrait ? 'hidden' : 'visible';
+    }
     function requestLandscape() {
+      updateOrientationGate();
       var o = screen.orientation;
       if (o && o.lock && window.innerWidth > window.innerHeight) {
         o.lock('landscape').catch(function () {});
       }
     }
+    updateOrientationGate();
+    window.addEventListener('resize', updateOrientationGate, { passive: true });
+    window.addEventListener('orientationchange', function () {
+      setTimeout(updateOrientationGate, 120);
+      setTimeout(updateOrientationGate, 500);
+    }, { passive: true });
     document.addEventListener('touchend', requestLandscape, { once: true, passive: true });
   </script>
 </body>
