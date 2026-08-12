@@ -42,52 +42,12 @@ canvas { background-color: transparent; }
 }
 
 #GameDiv {
+  visibility: visible;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top);
   padding-right: env(safe-area-inset-right);
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
-}
-
-#rotate-device {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 12px;
-  padding: 32px;
-  background: linear-gradient(180deg, #f5c88c, #b87244);
-  color: #3f291f;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: .08em;
-}
-
-#rotate-device small {
-  color: #684631;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: .03em;
-}
-
-.rotate-icon {
-  width: 70px;
-  height: 70px;
-  border: 2px solid rgba(63, 41, 31, .72);
-  border-radius: 18px;
-  font-family: sans-serif;
-  font-size: 50px;
-  font-weight: 400;
-  line-height: 66px;
-}
-
-@media (orientation: portrait) {
-  #rotate-device { display: flex; }
-  #GameDiv { visibility: hidden; }
 }
 
 @media (orientation: landscape) and (max-height: 430px) {
